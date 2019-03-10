@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getHelloWorld } from '../../actions/actions';
 
 class HelloWorldRedux extends Component {
   componentDidMount() {
-    this.props.getHelloWorld();
+    const { getHelloWorld } = this.props;
+    getHelloWorld();
   }
 
   render() {
-    const { hello_world } = this.props;
+    const { helloWorld } = this.props;
     return (
-      hello_world ? (
+      helloWorld ? (
         <div>
-          {hello_world}
+          {helloWorld}
         </div>
       ) : null
     );
   }
 }
 
-const mapStateToProps = (store) => ({
-  hello_world: store.helloworld.say_hi
+const mapStateToProps = store => ({
+  helloWorld: store.helloworld.say_hi,
 });
 
 const mapDispatchToProps = {
   getHelloWorld,
 };
 
+HelloWorldRedux.propTypes = {
+  getHelloWorld: PropTypes.func.isRequired,
+  helloWorld: PropTypes.string.isRequired,
+};
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(HelloWorldRedux);

@@ -2,16 +2,16 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import * as API from '../services/api';
 
 function* sayHelloSaga() {
-  yield console.log('Say hello');
+  yield console.log('Say hello'); //eslint-disable-line
 }
 
 function* HelloSaga() {
   try {
     const response = yield call(API.HelloWorldApi);
-      yield put({
-        type: 'HELLO_WORLD_SAGA_SUCCEEDED',
-        payload: response.name,
-      });
+    yield put({
+      type: 'HELLO_WORLD_SAGA_SUCCEEDED',
+      payload: response.name,
+    });
   } catch (error) {
     yield put({
       type: 'HELLO_WORLD_SAGA_FAILED',

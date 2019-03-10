@@ -6,8 +6,8 @@ import '../stylesheets/App.css';
 
 const App = () => (
   <Switch>
-    <Route exact path='/' component={HelloWorldRedux} />
-    <Route exact path='/saga' component={HelloWorldSaga} />
+    <Route exact path="/" component={HelloWorldRedux} />
+    <Route exact path="/saga" component={HelloWorldSaga} />
   </Switch>
 );
 
