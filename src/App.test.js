@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import HelloWorldSimple from './Components/HelloWorldSimple/HelloWorldSimple';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<HelloWorldSimple />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
